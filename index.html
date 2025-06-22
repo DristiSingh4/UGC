@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyUGC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+   
+</head>
+<body>
+    <nav>
+        <a href="/">
+        <img src="./photos/icons/logo.png" width="150" alt="">
+        </a>
+        <div class="nav-location">
+            <img src="./photos/icons/location.png" height="20">
+            <div>
+               <h1>India</h1>
+            </div>
+        </div>
+        <div class="search">
+            <input type="search" placeholder="Search for products, brands and more">
+            <button>
+                <i class="fas fa-search"></i> 
+            </button>
+        </div>
+      </div>
+
+        <div class="flag-select">
+            <select id="country-select" onchange="updateLanguages()">
+                <option value="us">🇺🇸 English</option>
+                <option value="fr">🇫🇷 French</option>
+                <option value="de">🇩🇪 German</option>
+                <option value="in">🇮🇳 Hindi</option>
+                <option value="jp">🇯🇵 Japanese</option>
+            </select>
+        </div>
+  
+      
+        <div class="nav-text">
+          <img src="./photos/icons/profile.jpeg" height="20">
+            <h1>PROFILE</h1>
+          <div class="expandable-profile-box">
+            <img src="./photos/icons/mee.jpeg" alt="Profile Photo">
+            <a href="https://www.instagram.com/dristiisingh/"
+                target="_blank" class="instagram-id">@dristiisingh</a>
+            <ul class="options">
+              <li>Account</li>
+              <li>Edit Profile</li>
+              <li>Settings & Privacy</li>
+              <li>Help & Support</li>
+              <li>Logout</li>
+            </ul>
+          </div>
+      </div>
+
+        <div class="nav-text">
+            <img src="./photos/icons/wish.png" height="20">
+            <h1>WISHLIST</h1>
+        </div>
+        <div class="nav-text">
+            <img src="./photos/icons/cart.webp" height="20">
+            <h1>CART</h1>
+        </div>
+
+    </nav>
+    
+    <div class="nav-bottom">
+      <div class="menu-container">
+        <div class="menu-item" onclick="toggleBox('w-box')">WOMEN</div>
+        <div class="expandable-box" id="w-box" style="left: 90px;">
+            <ul>
+                <li>
+                    <a href="#">Fashion</a>
+                    <div class="sub-options">
+                        <span>Tops</span> | <span>Dresses</span> | <span>Outerwear</span> |
+                        <span>Jeans</span> | <span>Skirts</span> | <span>Shorts</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Accessories</a>
+                    <div class="sub-options">
+                      <span>Bags</span> | <span>Perfumes</span> | <span>Jewellery</span> |
+                      <span>Press Ons</span> | <span>Phone Covers</span> | <span>Sunglasses</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Footwear</a>
+                    <div class="sub-options">
+                        <span>Sneakers</span> | <span>Heels</span> | <span>Flats</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="menu-item" onclick="toggleBox('m-box')">MEN</div>
+        <div class="expandable-box" id="m-box" style="left: 250px;">
+            <ul>
+                <li>
+                    <a href="#">Fashion</a>
+                    <div class="sub-options">
+                        <span>Shirts</span> | <span>T-Shirts</span> | <span>Outerwear</span> | 
+                         <span>Jeans</span> | <span>Trousers</span> | <span>Shorts</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Accessories</a>
+                    <div class="sub-options">
+                      <span>Belts</span> | <span>Perfumes</span> | <span>Jewellery</span> |
+                      <span>Wallets</span> | <span>Phone Covers</span> | <span>Sunglasses</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Footwear</a>
+                    <div class="sub-options">
+                        <span>Sneakers</span> | <span>Boots</span> | <span>Flats</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="menu-item" onclick="toggleBox('b-box')">BEAUTY</div>
+        <div class="expandable-box" id="b-box" style="left: 640px;">
+            <ul>
+                <li>
+                    <a href="#">Skincare</a>
+                    <div class="sub-options">
+                        <span>Serums</span> | <span>Creams</span> | <span>Makeup</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Haircare</a>
+                    <div class="sub-options">
+                        <span>Serums</span> | <span>Supplements</span> | <span>Shampoo & Conditioner</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Healthcare</a>
+                    <div class="sub-options">
+                        <span>Supplements</span> | <span>Oral hygiene</span> | <span>Medicines</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="menu-item" onclick="toggleBox('t-box')">TRAVEL</div>
+        <div class="expandable-box" id="t-box" style="left: 800px;">
+            <ul>
+                <li>
+                    <a href="#">Hotels</a>
+                    <div class="sub-options">
+                        <span>Airbnbs</span> | <span>Villas</span> | <span>Rooms</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Destinations</a>
+                    <div class="sub-options">
+                        <span>Holiday homes</span> | <span>Resorts</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Food</a>
+                    <div class="sub-options">
+                        <span>Restaurants</span> | <span>Cafes</span> | <span>Chain</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+
+
+    <div class="wrapper">
+        <div class="prev"><i class="fas fa-chevron-left"></i></div>
+
+        <div class="slides-container">
+            <div class="slides-image">
+                <img src="./photos/slider/i1.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i2.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i3.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i4.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i5.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i6.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i7.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i8.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i9.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i10.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i11.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i12.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i13.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i14.jpeg"/>
+            </div>
+            <div class="slides-image">
+                <img src="./photos/slider/i15.jpeg"/>
+            </div>
+        </div>
+
+        <div class="next"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <div class="navigation-dots"></div>
+
+
+    
+
+    <section id ="tranding">
+    <h2>RENOWNED GLOBAL BRANDS</h2>
+        <div class="tranding-container">
+          <div class="swiper tranding-slider">
+            <div class="swiper-wrapper">
+             
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <a href="/page1.html"><img src="photos/renowned/r1.jpeg" alt="Tranding"></a>
+                </div>
+              </div>
+              
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r2.jpeg" alt="Tranding">
+                </div>
+              </div>
+             
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r3.jpeg" alt="Tranding">
+                </div>
+              </div>
+              
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r4.jpeg" alt="Tranding">
+                </div>
+              </div>
+              
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r5.jpeg" alt="Tranding">
+                </div>
+              </div>
+             
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r6.jpeg" alt="Tranding">
+                </div>
+              </div>
+            
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r7.jpeg" alt="Tranding">
+                </div>
+              </div>
+
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r8.jpeg" alt="Tranding">
+                </div>
+              </div>
+
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r9.jpeg" alt="Tranding">
+                </div>
+              </div>
+
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r10.jpeg" alt="Tranding">
+                </div>
+              </div>
+
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r11.jpeg" alt="Tranding">
+                </div>
+              </div>
+
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r12.jpeg" alt="Tranding">
+                </div>
+              </div>
+
+              <div class="swiper-slide tranding-slide">
+                <div class="tranding-slide-img">
+                  <img src="photos/renowned/r13.jpeg" alt="Tranding">
+                </div>
+              </div>
+            
+            </div>
+  
+            <div class="tranding-slider-control">
+              <div class="swiper-button-prev slider-arrow">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </div>
+              <div class="swiper-button-next slider-arrow">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+  
+          </div>
+        </div>
+      </section>
+
+
+      <section id ="tranding">
+        <h2>REFINED ESSENTIALS</h2>
+            <div class="tranding-container">
+              <div class="swiper tranding-slider">
+                <div class="swiper-wrapper">
+                  
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r1.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+                
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r2.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+              
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r3.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+             
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r4.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+               
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r5.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+            
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r6.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+             
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r7.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+    
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r8.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+    
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r9.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+    
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r10.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+    
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r11.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+    
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r12.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+    
+                  <div class="swiper-slide tranding-slide">
+                    <div class="tranding-slide-img">
+                      <img src="photos/refined/r13.jpeg" alt="Tranding">
+                    </div>
+                  </div>
+              
+                </div>
+      
+                <div class="tranding-slider-control">
+                  <div class="swiper-button-prev slider-arrow">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                  </div>
+                  <div class="swiper-button-next slider-arrow">
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+      
+              </div>
+            </div>
+          </section>
+
+
+          <section id ="tranding">
+            <h2>ACCESSIBLE FAVOURITES</h2>
+                <div class="tranding-container">
+                  <div class="swiper tranding-slider">
+                    <div class="swiper-wrapper">
+                      
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r1.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+                    
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r2.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+                  
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r3.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+                 
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r4.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+                   
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r5.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+                
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r6.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+                 
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r7.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+        
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r8.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+        
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r9.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+        
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r10.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+        
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r11.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+        
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r12.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+        
+                      <div class="swiper-slide tranding-slide">
+                        <div class="tranding-slide-img">
+                          <img src="photos/accessible/r13.jpeg" alt="Tranding">
+                        </div>
+                      </div>
+                  
+                    </div>
+          
+                    <div class="tranding-slider-control">
+                      <div class="swiper-button-prev slider-arrow">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                      </div>
+                      <div class="swiper-button-next slider-arrow">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
+          
+                  </div>
+                </div>
+              </section>
+
+
+              <section id ="tranding">
+                <h2>EMERGING GEMS</h2>
+                    <div class="tranding-container">
+                      <div class="swiper tranding-slider">
+                        <div class="swiper-wrapper">
+                          
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r1.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+                        
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r2.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+                      
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r3.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+                     
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r4.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+                       
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r5.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+                    
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r6.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+                     
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r7.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+            
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r8.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+            
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r9.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+            
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r10.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+            
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r11.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+            
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r12.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+            
+                          <div class="swiper-slide tranding-slide">
+                            <div class="tranding-slide-img">
+                              <img src="photos/emerging/r13.jpeg" alt="Tranding">
+                            </div>
+                          </div>
+                      
+                        </div>
+              
+                        <div class="tranding-slider-control">
+                          <div class="swiper-button-prev slider-arrow">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
+                          </div>
+                          <div class="swiper-button-next slider-arrow">
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                          </div>
+                          <div class="swiper-pagination"></div>
+                        </div>
+              
+                      </div>
+                    </div>
+                  </section>
+    
+
+                  <div class="subscribe">
+                      <div class="mail-image">
+                        <i class="fas fa-envelope"></i>
+                      </div>
+                        <h3>Let's Go</h3>
+                        <p>Join the ultimate creator crew and unlock 
+                          the secrets to collaborating with top brands. Turn your
+                           passion for UGC into partnerships, perks, and endless opportunities!</p>
+
+                           <div class="email-container">
+                            <input type="email" placeholder="Enter your mail ID">
+                            <button>Subscribe</button>
+                        </div>
+                  </div>
+
+                  <div class="contact">
+                    <a href="/">
+                      <img src="./photos/icons/logo2.png" width="150" class="logo2">
+                      </a>
+
+                      <div class="contact-heading">
+                        <h2>About us</h2>
+                        <h2>Contact us</h2>
+                        <h2>Terms and Conditions</h2>
+                      </div>
+                  </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
